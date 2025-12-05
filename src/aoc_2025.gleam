@@ -6,7 +6,8 @@ import gleam/int
 import gleam/io
 import gleam/list
 import gleam/result
-import gleam/string
+
+import day1
 
 type Args {
   Args(day: Result(Int, Nil), part: Result(Int, Nil))
@@ -81,8 +82,6 @@ pub fn main() -> Nil {
   case result {
     Error(e) -> io.println_error(e)
     Ok(args) -> {
-      args |> string.inspect |> io.println
-
       let day = case args.day {
         Error(_) -> 0
         Ok(day) -> day
@@ -95,10 +94,7 @@ pub fn main() -> Nil {
 
       // Solution functions. These will be the two parts to the solution
       // for each day. [[day1.part1, day1.part2], [day2.part1, day2.part2]]
-      let solutions = [
-        [fn() { io.println("Hello") }, fn() { io.println(",") }],
-        [fn() { io.println("World") }, fn() { io.println("!") }],
-      ]
+      let solutions = [[day1.p1, day1.p2]]
 
       case day {
         0 -> {
@@ -107,7 +103,7 @@ pub fn main() -> Nil {
           |> list.flatten
           |> list.each(fn(f) { f() })
         }
-        1 | 2 -> {
+        1 -> {
           io.println("Running other days and parts " <> int.to_string(day))
 
           let idx = day - 1

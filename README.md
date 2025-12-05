@@ -17,7 +17,7 @@ gleam run # Will run all parts
 
 | Day | Result |
 |-----|--------|
-| 1   |        |
+| 1   |  ⭐⭐  |
 | 2   |        |
 | 3   |        |
 | 4   |        |
