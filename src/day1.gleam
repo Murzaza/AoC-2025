@@ -105,11 +105,11 @@ pub fn day1(file: String) {
 }
 
 pub fn p1() {
-  io.println(int.to_string(part1("files/day1.txt")))
+  io.println("Part 1: " <> int.to_string(part1("files/day1.txt")))
 }
 
 pub fn p2() {
-  io.println(int.to_string(part2("files/day1.txt")))
+  io.println("Part 2: " <> int.to_string(part2("files/day1.txt")))
 }
 
 pub fn part1(file: String) -> Int {

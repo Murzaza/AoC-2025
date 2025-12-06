@@ -9,6 +9,7 @@ import gleam/result
 
 import day1
 import day2
+import day3
 
 type Args {
   Args(day: Result(Int, Nil), part: Result(Int, Nil))
@@ -95,7 +96,11 @@ pub fn main() -> Nil {
 
       // Solution functions. These will be the two parts to the solution
       // for each day. [[day1.part1, day1.part2], [day2.part1, day2.part2]]
-      let solutions = [[day1.p1, day1.p2], [day2.p1, day2.p2]]
+      let solutions = [
+        [day1.p1, day1.p2],
+        [day2.p1, day2.p2],
+        [day3.p1, day3.p2],
+      ]
 
       case day {
         0 -> {
@@ -104,7 +109,7 @@ pub fn main() -> Nil {
           |> list.flatten
           |> list.each(fn(f) { f() })
         }
-        1 | 2 -> {
+        _ if day <= 3 -> {
           io.println("Day " <> int.to_string(day))
 
           let idx = day - 1
