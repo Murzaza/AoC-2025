@@ -10,6 +10,7 @@ import gleam/result
 import day1
 import day2
 import day3
+import day4
 
 type Args {
   Args(day: Result(Int, Nil), part: Result(Int, Nil))
@@ -100,6 +101,7 @@ pub fn main() -> Nil {
         [day1.p1, day1.p2],
         [day2.p1, day2.p2],
         [day3.p1, day3.p2],
+        [day4.p1, day4.p2],
       ]
 
       case day {
@@ -109,7 +111,7 @@ pub fn main() -> Nil {
           |> list.flatten
           |> list.each(fn(f) { f() })
         }
-        _ if day <= 3 -> {
+        _ if day <= 4 -> {
           io.println("Day " <> int.to_string(day))
 
           let idx = day - 1
