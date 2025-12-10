@@ -12,6 +12,7 @@ import day2
 import day3
 import day4
 import day5
+import day6
 
 type Args {
   Args(day: Result(Int, Nil), part: Result(Int, Nil))
@@ -104,7 +105,10 @@ pub fn main() -> Nil {
         [day3.p1, day3.p2],
         [day4.p1, day4.p2],
         [day5.p1, day5.p2],
+        [day6.p1, day6.p2],
       ]
+
+      let days = solutions |> list.length
 
       case day {
         0 -> {
@@ -113,7 +117,7 @@ pub fn main() -> Nil {
           |> list.flatten
           |> list.each(fn(f) { f() })
         }
-        _ if day <= 5 -> {
+        _ if day <= days -> {
           io.println("Day " <> int.to_string(day))
 
           let idx = day - 1
