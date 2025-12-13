@@ -2,6 +2,7 @@ import argv
 import clip.{type Command}
 import clip/help
 import clip/opt.{type Opt}
+import day7
 import gleam/int
 import gleam/io
 import gleam/list
@@ -106,6 +107,7 @@ pub fn main() -> Nil {
         [day4.p1, day4.p2],
         [day5.p1, day5.p2],
         [day6.p1, day6.p2],
+        [day7.p1, day7.p2],
       ]
 
       let days = solutions |> list.length
