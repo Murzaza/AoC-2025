@@ -14,6 +14,7 @@ import day3
 import day4
 import day5
 import day6
+import day8
 
 type Args {
   Args(day: Result(Int, Nil), part: Result(Int, Nil))
@@ -108,6 +109,7 @@ pub fn main() -> Nil {
         [day5.p1, day5.p2],
         [day6.p1, day6.p2],
         [day7.p1, day7.p2],
+        [day8.p1, day8.p2],
       ]
 
       let days = solutions |> list.length
