@@ -1,3 +1,4 @@
+import gleam/int
 import gleam/list
 
 pub type Point {
@@ -19,4 +20,11 @@ pub fn neighbors(p: Point) -> List(#(Int, Int)) {
     let #(x, y) = a
     x >= 0 && y >= 0
   })
+}
+
+pub fn inclusive_area(a: Point, b: Point) -> Int {
+  let x = int.absolute_value(a.x - b.x) + 1
+  let y = int.absolute_value(a.y - b.y) + 1
+
+  x * y
 }

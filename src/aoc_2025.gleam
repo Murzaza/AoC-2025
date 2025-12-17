@@ -2,7 +2,6 @@ import argv
 import clip.{type Command}
 import clip/help
 import clip/opt.{type Opt}
-import day7
 import gleam/int
 import gleam/io
 import gleam/list
@@ -14,7 +13,11 @@ import day3
 import day4
 import day5
 import day6
+import day7
 import day8
+import day9
+
+import util.{at}
 
 type Args {
   Args(day: Result(Int, Nil), part: Result(Int, Nil))
@@ -68,18 +71,6 @@ fn get_part(parts: List(fn() -> Nil), part: Int) -> fn() -> Nil {
   }
 }
 
-fn get_at(array: List(a), at: Int) -> Result(a, Nil) {
-  case array {
-    [h, ..rest] -> {
-      case at {
-        0 -> Ok(h)
-        _ -> get_at(rest, at - 1)
-      }
-    }
-    _ -> Error(Nil)
-  }
-}
-
 pub fn main() -> Nil {
   let result =
     command()
@@ -110,6 +101,7 @@ pub fn main() -> Nil {
         [day6.p1, day6.p2],
         [day7.p1, day7.p2],
         [day8.p1, day8.p2],
+        [day9.p1, day9.p2],
       ]
 
       let days = solutions |> list.length
@@ -125,7 +117,7 @@ pub fn main() -> Nil {
           io.println("Day " <> int.to_string(day))
 
           let idx = day - 1
-          let parts = case get_at(solutions, idx) {
+          let parts = case at(solutions, idx) {
             Ok(x) -> x
             Error(Nil) -> {
               let error_fn = fn() {
